@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fyp-demo
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: fyp-demo
+  template:
+    metadata:
+      labels:
+        app: fyp-demo
+    spec:
+      containers:
+      - image: mraza176/fyp-demo:latest
+        name: fyp-demo
+        ports:
+        - containerPort: 5000
