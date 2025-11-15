@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-rbac-cm
+  namespace: argocd
+data:
+  policy.default: role:readonly
+  policy.csv: |
+    p, role:adil1, applications, *, */*, allow
+    p, role:adil1, clusters, get, *, allow
+    p, role:adil1, repositories, get, *, allow
+    p, role:adil1, repositories, create, *, allow
+    p, role:adil1, repositories, update, *, allow
+    p, role:adil1, repositories, delete, *, allow
+    p, role:adil1, projects, get, *, allow
+    p, role:adil1, projects, create, *, allow
+    p, role:adil1, projects, update, *, allow
+    p, role:adil1, projects, delete, *, allow
+    p, role:adil1, logs, get, *, allow
+    p, role:adil1, exec, create, */*, allow
+
+    g, your-github-org:your-team, role:adil1
